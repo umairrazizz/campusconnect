@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 0;
+    }
+    form {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CampusConnect</h1>
+    <p>Answer the questions to find your match!</p>
+  </header>
+
+  <form id="quizForm">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <label for="year">What year are you in?</label>
+    <select id="year" name="year">
+      <option value="1st Year">1st Year</option>
+      <option value="2nd Year">2nd Year</option>
+      <option value="3rd Year">3rd Year</option>
+      <option value="4th Year">4th Year</option>
+    </select>
+
+    <label for="subject">What's your favorite subject?</label>
+    <input type="text" id="subject" name="subject" placeholder="Enter your favorite subject" required>
+
+    <label for="hobby">What do you like to do in your free time?</label>
+    <input type="text" id="hobby" name="hobby" placeholder="Enter your hobby" required>
+
+    <button type="submit">Find Match</button>
+  </form>
+
+  <footer>
+    <p>&copy; 2024 CampusConnect. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const year = document.getElementById('year').value;
+      const subject = document.getElementById('subject').value;
+      const hobby = document.getElementById('hobby').value;
+
+      alert(`Hello ${name}, we've matched you with someone from ${year} who loves ${subject} and also enjoys ${hobby}!`);
+    });
+  </script>
+</body>
+</html>
