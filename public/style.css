@@ -1,0 +1,99 @@
+/* Background for the entire page */
+.background {
+  background: linear-gradient(to right, #00c6ff, #0072ff); /* Vibrant gradient background */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Base styling for the body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+}
+
+/* Card styling for registration form */
+.futuristic-card {
+  border: none; /* Remove default card border */
+  border-radius: 20px; /* Rounded corners for card */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); /* Deep shadow for better depth */
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  backdrop-filter: blur(15px); /* Blurring effect for a modern touch */
+}
+
+/* Header styling for the card */
+.card-header {
+  background-color: #0072ff; /* Bright blue for header */
+  color: white; /* White text color */
+  border-radius: 20px 20px 0 0; /* Rounded corners at the top */
+}
+
+/* Form label styling */
+.form-group label {
+  font-weight: bold; /* Bold text for labels */
+  color: #0072ff; /* Match header color */
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #0072ff; /* Bright blue for buttons */
+  border: none; /* Remove default border */
+  border-radius: 50px; /* Rounded button */
+  padding: 12px; /* Increased padding for better touch area */
+  font-size: 1.1rem; /* Slightly larger font */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Interest card styling */
+.interest-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the left */
+  background: #f8f9fa; /* Light background for interest cards */
+  border: 1px solid #0072ff; /* Border color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 10px; /* Padding for the card */
+  margin-bottom: 15px; /* Margin between cards */
+  transition: transform 0.2s; /* Animation for hover effect */
+}
+
+.interest-card:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Interest card input and label styling */
+.interest-card input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label */
+}
+
+.interest-card label {
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.interest-card i {
+  font-size: 1.5rem; /* Icon size */
+  color: #0072ff; /* Icon color */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Feedback styles */
+.invalid-feedback {
+  display: none; /* Hide invalid feedback by default */
+}
+
+input:invalid + .invalid-feedback,
+select:invalid + .invalid-feedback {
+  display: block; /* Show feedback if input is invalid */
+}
+
+/* Responsive design for smaller devices */
+@media (max-width: 576px) {
+  .container {
+      padding: 0 15px; /* Adjust padding on small screens */
+  }
+}

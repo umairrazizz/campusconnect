@@ -1,19 +1,15 @@
 {
   "name": "campusconnect",
   "version": "1.0.0",
-  "description": "A fun web game to connect students through questions.",
-  "main": "index.js",
+  "description": "A fun matching web app for campus",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "echo 'No build needed'",
-    "test": "echo 'No tests specified' && exit 0"
+    "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
-  },
-  "engines": {
-    "node": "16.x"
-  },
-  "author": "Your Name",
-  "license": "ISC"
+    "bcrypt": "^5.1.1",
+    "express": "^4.17.1",
+    "express-session": "^1.18.1",
+    "socket.io": "^4.8.0"
+  }
 }

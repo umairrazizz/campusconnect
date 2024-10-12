@@ -1,46 +1,76 @@
-const users = [];
-let currentMatch = null;
+// JavaScript file for handling user registration and interests
 
-document.getElementById('user-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const gender = document.getElementById('gender').value;
-    const instagram = document.getElementById('instagram').value;
-    const snapchat = document.getElementById('snapchat').value;
+// In-memory storage for registered users
+let users = [];
 
-    users.push({ name, gender, instagram, snapchat });
-    matchUsers();
-});
+// Event listener for the registration form submission
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-function matchUsers() {
-    const males = users.filter(user => user.gender === 'male');
-    const females = users.filter(user => user.gender === 'female');
+    let valid = true; // Flag for form validation
 
-    if (males.length > 0 && females.length > 0) {
-        const maleMatch = males[Math.floor(Math.random() * males.length)];
-        const femaleMatch = females[Math.floor(Math.random() * females.length)];
-
-        currentMatch = { male: maleMatch, female: femaleMatch };
-
-        displayMatch(currentMatch);
+    // Validate username
+    const username = document.getElementById('username');
+    if (!username.value.trim()) {
+        username.classList.add('is-invalid');
+        valid = false;
+    } else {
+        username.classList.remove('is-invalid');
     }
-}
 
-function displayMatch(match) {
-    const matchesDiv = document.getElementById('matches');
-    matchesDiv.innerHTML = `
-        <h2>Matched:</h2>
-        <p>${match.male.name} (Male) - Instagram: ${match.male.instagram}, Snapchat: ${match.male.snapchat}</p>
-        <p>${match.female.name} (Female) - Instagram: ${match.female.instagram}, Snapchat: ${match.female.snapchat}</p>
-    `;
-    document.getElementById('chat').style.display = 'block';
-}
+    // Validate email
+    const email = document.getElementById('email');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email validation
+    if (!email.value.trim() || !emailPattern.test(email.value)) {
+        email.classList.add('is-invalid');
+        valid = false;
+    } else {
+        email.classList.remove('is-invalid');
+    }
 
-document.getElementById('send').addEventListener('click', function() {
-    const message = document.getElementById('message').value;
-    const chatWindow = document.getElementById('chat-window');
-    if (message) {
-        chatWindow.innerHTML += `<p>${message}</p>`;
-        document.getElementById('message').value = '';
+    // Validate password
+    const password = document.getElementById('password');
+    if (password.value.length < 8) {
+        password.classList.add('is-invalid');
+        valid = false;
+    } else {
+        password.classList.remove('is-invalid');
+    }
+
+    // Validate gender
+    const gender = document.getElementById('gender');
+    if (!gender.value) {
+        gender.classList.add('is-invalid');
+        valid = false;
+    } else {
+        gender.classList.remove('is-invalid');
+    }
+
+    // Collect interests
+    const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+        .map(interest => interest.value); // Get selected interests
+
+    // Check if at least one interest is selected
+    if (interests.length === 0) {
+        alert('Please select at least one interest.'); // Alert if no interests are selected
+        valid = false;
+    }
+
+    if (valid) {
+        // Create a user object
+        const user = {
+            username: username.value,
+            email: email.value,
+            password: password.value,
+            gender: gender.value,
+            interests: interests
+        };
+
+        // Add user to the in-memory list
+        users.push(user);
+
+        // Reset the form
+        document.getElementById('registrationForm').reset();
+        alert('Registration successful!'); // Notify user of successful registration
     }
 });
