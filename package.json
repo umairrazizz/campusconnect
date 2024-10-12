@@ -1,15 +1,19 @@
 {
   "name": "campusconnect",
   "version": "1.0.0",
+  "description": "A fun web game to connect students through questions.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "build": "echo 'No build needed'",
+    "test": "echo 'No tests specified' && exit 0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.18.2"
   },
-  "description": ""
+  "engines": {
+    "node": "20.18.0"
+  },
+  "author": "Umair aziz",
+  "license": "ISC"
 }
