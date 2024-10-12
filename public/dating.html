@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - Dating</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+      <header class="futuristic-header">
+        <h1>Campus Connect <span class="blue-text">IUST</span> - Dating</h1>
+        <p>Find your match and start connecting!</p>
+    </header>
+    
+        <section class="content">
+            <form id="datingForm">
+                <h2>Find Your Match</h2>
+                <label for="usernameMatch">Enter your username:</label>
+                <input type="text" id="usernameMatch" class="form-control" required>
+                <button type="submit" class="btn">
+                    <i class="fas fa-heart"></i> Find Matches
+                </button>
+            </form>
+            <div id="matchResults"></div>
+        </section>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

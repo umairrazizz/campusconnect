@@ -1,76 +1,57 @@
-// JavaScript file for handling user registration and interests
-
-// In-memory storage for registered users
-let users = [];
-
-// Event listener for the registration form submission
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    let valid = true; // Flag for form validation
-
-    // Validate username
-    const username = document.getElementById('username');
-    if (!username.value.trim()) {
-        username.classList.add('is-invalid');
-        valid = false;
-    } else {
-        username.classList.remove('is-invalid');
-    }
-
-    // Validate email
-    const email = document.getElementById('email');
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email validation
-    if (!email.value.trim() || !emailPattern.test(email.value)) {
-        email.classList.add('is-invalid');
-        valid = false;
-    } else {
-        email.classList.remove('is-invalid');
-    }
-
-    // Validate password
-    const password = document.getElementById('password');
-    if (password.value.length < 8) {
-        password.classList.add('is-invalid');
-        valid = false;
-    } else {
-        password.classList.remove('is-invalid');
-    }
-
-    // Validate gender
-    const gender = document.getElementById('gender');
-    if (!gender.value) {
-        gender.classList.add('is-invalid');
-        valid = false;
-    } else {
-        gender.classList.remove('is-invalid');
-    }
-
-    // Collect interests
-    const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
-        .map(interest => interest.value); // Get selected interests
-
-    // Check if at least one interest is selected
-    if (interests.length === 0) {
-        alert('Please select at least one interest.'); // Alert if no interests are selected
-        valid = false;
-    }
-
-    if (valid) {
-        // Create a user object
-        const user = {
-            username: username.value,
-            email: email.value,
-            password: password.value,
-            gender: gender.value,
-            interests: interests
-        };
-
-        // Add user to the in-memory list
-        users.push(user);
-
-        // Reset the form
-        document.getElementById('registrationForm').reset();
-        alert('Registration successful!'); // Notify user of successful registration
-    }
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="futuristic-header">
+            <h1>CampusConnect</h1>
+            <p>Connect, Collaborate, and Share</p>
+        </header>
+        <div class="section-grid">
+            <div class="section-card" style="background: linear-gradient(135deg, #ff7e5f, #feb47b);">
+                <a href="dating.html" class="section-link">
+                    <i class="fas fa-heart icon"></i>
+                    <h2>Dating</h2>
+                    <p>Find your perfect match.</p>
+                </a>
+            </div>
+            <div class="section-card" style="background: linear-gradient(135deg, #6a11cb, #2575fc);">
+                <a href="confession.html" class="section-link">
+                    <i class="fas fa-comments icon"></i>
+                    <h2>Confession</h2>
+                    <p>Share your confessions anonymously.</p>
+                </a>
+            </div>
+            <div class="section-card" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                <a href="project-partner.html" class="section-link">
+                    <i class="fas fa-users icon"></i>
+                    <h2>Project Partner</h2>
+                    <p>Find the perfect teammate for your project.</p>
+                </a>
+            </div>
+            <div class="section-card" style="background: linear-gradient(135deg, #f7971e, #ffd200);">
+                <a href="share-ideas.html" class="section-link">
+                    <i class="fas fa-lightbulb icon"></i>
+                    <h2>Share Ideas</h2>
+                    <p>Contribute and discuss innovative ideas.</p>
+                </a>
+            </div>
+            <div class="section-card" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <a href="feedback.html" class="section-link">
+                    <i class="fas fa-comment-alt icon"></i>
+                    <h2>Feedback</h2>
+                    <p>Tell us how we can improve.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

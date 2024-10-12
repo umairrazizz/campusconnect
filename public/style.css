@@ -1,99 +1,118 @@
-/* Background for the entire page */
-.background {
-  background: linear-gradient(to right, #00c6ff, #0072ff); /* Vibrant gradient background */
-  height: 100vh; /* Full viewport height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Base styling for the body */
+/* General Styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1a1a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
-/* Card styling for registration form */
-.futuristic-card {
-  border: none; /* Remove default card border */
-  border-radius: 20px; /* Rounded corners for card */
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); /* Deep shadow for better depth */
-  background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-  backdrop-filter: blur(15px); /* Blurring effect for a modern touch */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Header styling for the card */
-.card-header {
-  background-color: #0072ff; /* Bright blue for header */
-  color: white; /* White text color */
-  border-radius: 20px 20px 0 0; /* Rounded corners at the top */
+h1, h2, p {
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
-/* Form label styling */
-.form-group label {
-  font-weight: bold; /* Bold text for labels */
-  color: #0072ff; /* Match header color */
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Button styling */
-.btn-primary {
-  background-color: #0072ff; /* Bright blue for buttons */
-  border: none; /* Remove default border */
-  border-radius: 50px; /* Rounded button */
-  padding: 12px; /* Increased padding for better touch area */
-  font-size: 1.1rem; /* Slightly larger font */
+/* Futuristic Header */
+.futuristic-header {
+  text-align: center;
+  padding: 50px 0;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(50,50,50,1) 50%, rgba(0,0,0,1) 100%);
+  color: #00ffcc;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+.futuristic-header h1 {
+  font-size: 3rem;
+  letter-spacing: 3px;
 }
 
-/* Interest card styling */
-.interest-card {
+.futuristic-header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Section Grid */
+.section-grid {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.section-card {
+  padding: 40px;
+  border-radius: 15px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.section-link h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.section-link p {
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Buttons and Inputs */
+form {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align items to the left */
-  background: #f8f9fa; /* Light background for interest cards */
-  border: 1px solid #0072ff; /* Border color */
-  border-radius: 10px; /* Rounded corners */
-  padding: 10px; /* Padding for the card */
-  margin-bottom: 15px; /* Margin between cards */
-  transition: transform 0.2s; /* Animation for hover effect */
+  margin-top: 20px;
 }
 
-.interest-card:hover {
-  transform: scale(1.05); /* Scale effect on hover */
+textarea, input {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-/* Interest card input and label styling */
-.interest-card input[type="checkbox"] {
-  margin-right: 10px; /* Space between checkbox and label */
+.btn {
+  background-color: #00ffcc;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.interest-card label {
-  cursor: pointer; /* Pointer cursor on hover */
-  display: flex;
-  align-items: center; /* Center items vertically */
+.btn:hover {
+  background-color: #00cca3;
 }
 
-.interest-card i {
-  font-size: 1.5rem; /* Icon size */
-  color: #0072ff; /* Icon color */
-  margin-right: 10px; /* Space between icon and text */
-}
-
-/* Feedback styles */
-.invalid-feedback {
-  display: none; /* Hide invalid feedback by default */
-}
-
-input:invalid + .invalid-feedback,
-select:invalid + .invalid-feedback {
-  display: block; /* Show feedback if input is invalid */
-}
-
-/* Responsive design for smaller devices */
-@media (max-width: 576px) {
-  .container {
-      padding: 0 15px; /* Adjust padding on small screens */
-  }
+/* Content Styles */
+.content {
+  margin-top: 30px;
 }
