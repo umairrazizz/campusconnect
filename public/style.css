@@ -116,3 +116,179 @@ textarea, input {
 .content {
   margin-top: 30px;
 }
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1a1a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1a1a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centering Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+}
+
+.question {
+  text-align: center;
+  margin: 20px 0; /* Add some margin */
+}
+
+.btn, .option-btn {
+  background-color: #FF4081;
+  border: none;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.btn:hover, .option-btn:hover {
+  background-color: #E91E63;
+}
+
+/* Futuristic Header */
+.futuristic-header {
+  text-align: center;
+  padding: 50px 0;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(50,50,50,1) 50%, rgba(0,0,0,1) 100%);
+  color: #00ffcc;
+}
+
+.futuristic-header h1 {
+  font-size: 3rem;
+  letter-spacing: 3px;
+}
+
+.futuristic-header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+
+/* Form Container */
+#form-container, #questionnaire {
+  width: 400px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #1F1F1F;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Steps */
+.form-step {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.form-step.active {
+  display: flex;
+}
+
+/* Input Fields */
+input, select {
+  background-color: #2D2D2D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 15px 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* Buttons */
+.btn {
+  background-color: #00ffcc;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00cca3;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  background-color: #333;
+  border-radius: 25px;
+  margin: 20px 0;
+}
+.progress {
+  width: 0;
+  height: 10px;
+  background-color: #FF4081;
+  border-radius: 25px;
+  transition: width 0.5s;
+}
+
+/* Option Buttons */
+.option-btn {
+  background-color: #03DAC6;
+  border: none;
+  color: #121212;
+  padding: 15px 20px;
+  margin: 10px 0;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 25px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+.option-btn:hover {
+  background-color: #00BFA5;
+}
+/* Centering Styles */
+.question {
+  text-align: center; /* Center text */
+  margin: 20px; /* Add some margin */
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #333;
+  border-radius: 25px;
+  margin: 20px 0;
+}
+
+.progress {
+  width: 0;
+  height: 10px;
+  background-color: #FF4081;
+  border-radius: 25px;
+  transition: width 0.5s;
+}
+
+#thank-you {
+  text-align: center;
+}

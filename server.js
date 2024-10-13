@@ -1,38 +1,38 @@
 const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
 const path = require('path');
-const bodyParser = require('body-parser');
 
+// Initialize express app
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-let users = []; // This will store the registered users
+// Create an HTTP server
+const server = http.createServer(app);
 
-// Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// Initialize Socket.IO
+const io = new Server(server);
+
+// Serve static files from the "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
-app.post('/register', (req, res) => {
-    const { name, gender, insta, snapchat } = req.body;
-    const user = { name, gender, insta, snapchat, available: true };
-    users.push(user);
-    res.json({ message: 'User registered successfully!', user });
-});
+// Handle a new client connection
+io.on('connection', (socket) => {
+    console.log('A user connected');
 
-app.get('/matches/:gender', (req, res) => {
-    const { gender } = req.params;
-    const oppositeGender = gender === 'male' ? 'female' : 'male';
-    const availableMatches = users.filter(user => user.gender === oppositeGender && user.available);
-    
-    if (availableMatches.length > 0) {
-        res.json({ match: availableMatches[Math.floor(Math.random() * availableMatches.length)] });
-    } else {
-        res.json({ match: null });
-    }
+    // Listen for chat message events
+    socket.on('chatMessage', (msg) => {
+        // Broadcast the message to all connected clients
+        io.emit('chatMessage', msg);
+    });
+
+    // Handle user disconnecting
+    socket.on('disconnect', () => {
+        console.log('A user disconnected');
+    });
 });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });

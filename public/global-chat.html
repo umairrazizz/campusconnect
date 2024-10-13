@@ -25,27 +25,36 @@
         </div>
     </div>
 
+    <!-- Include Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
     <script>
-        // Handle chat functionality
+        const socket = io(); // Connect to the server
+
         const chatForm = document.getElementById('chat-form');
         const chatBox = document.getElementById('chat-box');
 
+        // Listen for form submission
         chatForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const message = document.getElementById('chat-message').value;
 
-            // Simulate adding a message (in real scenarios, you would send this to the server)
+            // Emit the message to the server
+            socket.emit('chatMessage', message);
+
+            // Clear input field
+            document.getElementById('chat-message').value = '';
+        });
+
+        // Listen for incoming messages from the server
+        socket.on('chatMessage', function(msg) {
             const messageElement = document.createElement('div');
             messageElement.classList.add('message');
-            messageElement.innerHTML = `<strong>You:</strong> ${message}`;
+            messageElement.innerHTML = `<strong>User:</strong> ${msg}`;
             chatBox.appendChild(messageElement);
 
             // Scroll to the bottom
             chatBox.scrollTop = chatBox.scrollHeight;
-
-            // Clear input field
-            document.getElementById('chat-message').value = '';
         });
     </script>
 </body>

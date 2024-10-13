@@ -3,29 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusConnect - Dating</title>
+    <title>CampusConnect</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
-      <header class="futuristic-header">
-        <h1>Campus Connect <span class="blue-text">IUST</span> - Dating</h1>
-        <p>Find your match and start connecting!</p>
-    </header>
-    
-        <section class="content">
-            <form id="datingForm">
-                <h2>Find Your Match</h2>
-                <label for="usernameMatch">Enter your username:</label>
-                <input type="text" id="usernameMatch" class="form-control" required>
-                <button type="submit" class="btn">
-                    <i class="fas fa-heart"></i> Find Matches
-                </button>
-            </form>
-            <div id="matchResults"></div>
-        </section>
+        <div class="futuristic-header">
+            <h1>Welcome to CampusConnect</h1>
+            <p>Join us to connect with your campus community!</p>
+        </div>
+
+        <div id="form-container">
+            <div class="form-step active" id="step1">
+                <label for="name">What's your name?</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <span class="error-message"></span>
+                <button type="button" class="btn next-btn" onclick="nextStep()">Next <span>→</span></button>
+            </div>
+
+            <div class="form-step" id="step2">
+                <label for="gender">Select your gender:</label>
+                <select id="gender" required>
+                    <option value="">Choose</option>
+                    <option value="male">♂ Male</option>
+                    <option value="female">♀ Female</option>
+                    <option value="other">⚥ Other</option>
+                </select>
+                <span class="error-message"></span>
+                <button type="button" class="btn next-btn" onclick="nextStep()">Next <span>→</span></button>
+            </div>
+
+            <div class="form-step" id="step3">
+                <label for="semester">Which semester are you in?</label>
+                <select id="semester" required>
+                    <option value="">Select Semester</option>
+                    <option value="1">1st Semester</option>
+                    <option value="2">2nd Semester</option>
+                    <option value="3">3rd Semester</option>
+                    <option value="4">4th Semester</option>
+                    <option value="5">5th Semester</option>
+                    <option value="6">6th Semester</option>
+                    <option value="7">7th Semester</option>
+                    <option value="8">8th Semester</option>
+                </select>
+                <span class="error-message"></span>
+                <button type="button" class="btn next-btn" onclick="nextStep()">Next <span>→</span></button>
+            </div>
+
+            <div class="form-step" id="step4">
+                <label for="department">What's your department?</label>
+                <select id="department" required>
+                    <option value="">Select Department</option>
+                    <option value="CSE">Computer Science and Engineering</option>
+                    <option value="EEE">Electrical and Electronic Engineering</option>
+                    <option value="ME">Mechanical Engineering</option>
+                    <option value="CE">Civil Engineering</option>
+                    <option value="BBA">Business Administration</option>
+                </select>
+                <span class="error-message"></span>
+                <button type="button" class="btn next-btn" onclick="nextStep()">Next <span>→</span></button>
+            </div>
+
+            <div class="form-step" id="step5">
+                <label for="year-of-birth">Year of birth:</label>
+                <input type="number" id="year-of-birth" min="1900" max="2024" required>
+                <span class="error-message"></span>
+                <button type="button" class="btn next-btn" onclick="calculateAge()">Proceed <span>⚡</span></button>
+            </div>
+        </div>
+
+        <div id="questionnaire" style="display: none;">
+            <div class="question" id="question1">
+                <p>What’s your idea of a perfect weekend?</p>
+                <button class="option-btn" onclick="nextQuestion()">Hiking</button>
+                <button class="option-btn" onclick="nextQuestion()">Movie Marathon</button>
+                <button class="option-btn" onclick="nextQuestion()">Reading</button>
+                <button class="option-btn" onclick="nextQuestion()">Exploring New Places</button>
+            </div>
+
+            <div class="question" id="question2" style="display: none;">
+                <p>What’s your favorite subject?</p>
+                <button class="option-btn" onclick="nextQuestion()">Mathematics</button>
+                <button class="option-btn" onclick="nextQuestion()">Physics</button>
+                <button class="option-btn" onclick="nextQuestion()">Chemistry</button>
+                <button class="option-btn" onclick="nextQuestion()">Literature</button>
+            </div>
+
+            <!-- Add more questions as needed -->
+
+            <div id="thank-you" style="display: none; text-align: center;">
+                <h2>Thank You for Completing the Questionnaire!</h2>
+                <p>Your responses have been recorded.</p>
+                <button class="btn" onclick="resetForm()">Start Over</button>
+            </div>
+        </div>
     </div>
-    <script src="index.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
