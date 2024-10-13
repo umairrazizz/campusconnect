@@ -1,87 +1,83 @@
-let currentStep = 1; // Initialize current step
-const totalSteps = 5; // Total number of form steps
-const totalQuestions = 2; // Update to the total number of questions you want
-let currentQuestion = 1; // Initialize current question
+let currentStep = 1;
+let currentQuestion = 1;
+const totalQuestions = 4;
+
+function startForm() {
+    document.getElementById('intro-page').style.display = 'none';
+    document.getElementById('form-container').style.display = 'block';
+}
 
 function nextStep() {
-    const currentFormStep = document.getElementById(`step${currentStep}`);
-    const nextFormStep = document.getElementById(`step${currentStep + 1}`);
+    const currentDiv = document.getElementById(`step${currentStep}`);
+    const nextDiv = document.getElementById(`step${currentStep + 1}`);
+    const input = currentDiv.querySelector('input, select');
 
-    // Validate the current step's input
-    if (validateStep(currentFormStep)) {
-        currentFormStep.classList.remove('active');
+    if (validateInput(input)) {
+        currentDiv.classList.remove('active');
         currentStep++;
-        if (currentStep <= totalSteps) {
-            nextFormStep.classList.add('active');
-        } else {
-            document.getElementById('form-container').style.display = 'none';
-            startQuestionnaire();
-        }
+        nextDiv.classList.add('active');
     }
 }
 
-function validateStep(step) {
-    const inputs = step.querySelectorAll('input, select');
-    let valid = true;
-
-    // Clear previous error messages
-    step.querySelectorAll('.error-message').forEach(msg => msg.textContent = '');
-
-    inputs.forEach(input => {
-        if (!input.value) {
-            const errorMessage = input.nextElementSibling;
-            errorMessage.textContent = 'This field is required.';
-            valid = false;
-        }
-    });
-    return valid;
-}
-
-function calculateAge() {
-    const yearOfBirth = document.getElementById('year-of-birth').value;
-    const currentYear = new Date().getFullYear();
-    const age = currentYear - yearOfBirth;
-
-    if (age >= 0) {
-        alert(`Your age is ${age} years.`);
-        document.getElementById('form-container').style.display = 'none';
-        document.getElementById('questionnaire').style.display = 'block';
-        showQuestion(1); // Start the questions
-    } else {
-        alert('Please enter a valid year of birth.');
+function validateInput(input) {
+    if (!input.value) {
+        input.nextElementSibling.textContent = 'This field is required';
+        return false;
     }
+    input.nextElementSibling.textContent = '';
+    return true;
 }
 
 function startQuestionnaire() {
+    document.getElementById('form-container').style.display = 'none';
     document.getElementById('questionnaire').style.display = 'block';
-    showQuestion(1); // Start with the first question
-}
-
-function showQuestion(questionNumber) {
-    const currentQuestionDiv = document.getElementById(`question${questionNumber}`);
-    currentQuestionDiv.style.display = 'block';
+    document.getElementById(`question${currentQuestion}`).classList.add('active');
 }
 
 function nextQuestion() {
-    const currentQuestionDiv = document.getElementById(`question${currentQuestion}`);
-    currentQuestionDiv.style.display = 'none';
-    
+    document.getElementById(`question${currentQuestion}`).classList.remove('active');
     currentQuestion++;
+    
     if (currentQuestion <= totalQuestions) {
-        showQuestion(currentQuestion);
+        document.getElementById(`question${currentQuestion}`).classList.add('active');
+        updateProgress();
     } else {
-        // Hide questionnaire and show thank you message
         document.getElementById('questionnaire').style.display = 'none';
         document.getElementById('thank-you').style.display = 'block';
     }
 }
 
+function updateProgress() {
+    const progressPercentage = (currentQuestion / totalQuestions) * 100;
+    document.getElementById('progress').style.width = progressPercentage + '%';
+}
+
 function resetForm() {
+    document.getElementById('thank-you').style.display = 'none';
+    document.getElementById('intro-page').style.display = 'block';
     currentStep = 1;
     currentQuestion = 1;
-    document.getElementById('form-container').style.display = 'block';
-    document.getElementById('thank-you').style.display = 'none';
-    document.getElementById('questionnaire').style.display = 'none';
     document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
     document.getElementById('step1').classList.add('active');
+    document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+    document.getElementById('progress').style.width = '0%';
 }
+
+function answerQuestion() {
+    nextQuestion();
+}
+fetch('https://your-app-name.glitch.me/submit', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Success:', data);
+    alert('Form submitted successfully!');
+})
+.catch((error) => {
+    console.error('Error:', error);
+});

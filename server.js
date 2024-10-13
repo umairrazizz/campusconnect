@@ -1,38 +1,24 @@
 const express = require('express');
-const http = require('http');
-const { Server } = require('socket.io');
-const path = require('path');
-
-// Initialize express app
+const bodyParser = require('body-parser');
 const app = express();
 
-// Create an HTTP server
-const server = http.createServer(app);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Initialize Socket.IO
-const io = new Server(server);
-
-// Serve static files from the "public" folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Handle a new client connection
-io.on('connection', (socket) => {
-    console.log('A user connected');
-
-    // Listen for chat message events
-    socket.on('chatMessage', (msg) => {
-        // Broadcast the message to all connected clients
-        io.emit('chatMessage', msg);
-    });
-
-    // Handle user disconnecting
-    socket.on('disconnect', () => {
-        console.log('A user disconnected');
-    });
+app.get('/', (req, res) => {
+    res.send('Hello from your backend!');
 });
 
-// Start the server
+// Example route to handle form submissions
+app.post('/submit', (req, res) => {
+    const userData = req.body;
+    console.log('User Data:', userData); // Log data to console
+
+    // Respond back to the client
+    res.send({ message: "Form submitted successfully!" });
+});
+
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

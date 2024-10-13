@@ -5,98 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusConnect</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="futuristic-header">
-            <h1>Welcome to CampusConnect</h1>
-            <p>Join us to connect with your campus community!</p>
+
+    <!-- Intro Page -->
+    <div id="intro-page" class="intro">
+        <h1>Welcome to CampusConnect</h1>
+        <p>Find your best match by answering a few questions!</p>
+        <button class="btn" onclick="startForm()">Get Started</button>
+    </div>
+
+    <!-- Form Container -->
+    <div id="form-container" style="display: none;">
+        <!-- Step 1: Name -->
+        <div class="form-step active" id="step1">
+            <label for="name">What's your name?</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <span class="error-message"></span>
+            <button type="button" class="next-btn" onclick="nextStep()">Next <span>→</span></button>
         </div>
 
-        <div id="form-container">
-            <div class="form-step active" id="step1">
-                <label for="name">What's your name?</label>
-                <input type="text" id="name" placeholder="Enter your name" required>
-                <span class="error-message"></span>
-                <button type="button" class="btn next-btn" onclick="nextStep()">Next <span>→</span></button>
-            </div>
-
-            <div class="form-step" id="step2">
-                <label for="gender">Select your gender:</label>
-                <select id="gender" required>
-                    <option value="">Choose</option>
-                    <option value="male">♂ Male</option>
-                    <option value="female">♀ Female</option>
-                    <option value="other">⚥ Other</option>
-                </select>
-                <span class="error-message"></span>
-                <button type="button" class="btn next-btn" onclick="nextStep()">Next <span>→</span></button>
-            </div>
-
-            <div class="form-step" id="step3">
-                <label for="semester">Which semester are you in?</label>
-                <select id="semester" required>
-                    <option value="">Select Semester</option>
-                    <option value="1">1st Semester</option>
-                    <option value="2">2nd Semester</option>
-                    <option value="3">3rd Semester</option>
-                    <option value="4">4th Semester</option>
-                    <option value="5">5th Semester</option>
-                    <option value="6">6th Semester</option>
-                    <option value="7">7th Semester</option>
-                    <option value="8">8th Semester</option>
-                </select>
-                <span class="error-message"></span>
-                <button type="button" class="btn next-btn" onclick="nextStep()">Next <span>→</span></button>
-            </div>
-
-            <div class="form-step" id="step4">
-                <label for="department">What's your department?</label>
-                <select id="department" required>
-                    <option value="">Select Department</option>
-                    <option value="CSE">Computer Science and Engineering</option>
-                    <option value="EEE">Electrical and Electronic Engineering</option>
-                    <option value="ME">Mechanical Engineering</option>
-                    <option value="CE">Civil Engineering</option>
-                    <option value="BBA">Business Administration</option>
-                </select>
-                <span class="error-message"></span>
-                <button type="button" class="btn next-btn" onclick="nextStep()">Next <span>→</span></button>
-            </div>
-
-            <div class="form-step" id="step5">
-                <label for="year-of-birth">Year of birth:</label>
-                <input type="number" id="year-of-birth" min="1900" max="2024" required>
-                <span class="error-message"></span>
-                <button type="button" class="btn next-btn" onclick="calculateAge()">Proceed <span>⚡</span></button>
-            </div>
+        <!-- Step 2: Gender -->
+        <div class="form-step" id="step2">
+            <label for="gender">Select your gender:</label>
+            <select id="gender" required>
+                <option value="">Choose</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <span class="error-message"></span>
+            <button type="button" class="next-btn" onclick="nextStep()">Next <span>→</span></button>
         </div>
 
-        <div id="questionnaire" style="display: none;">
-            <div class="question" id="question1">
-                <p>What’s your idea of a perfect weekend?</p>
-                <button class="option-btn" onclick="nextQuestion()">Hiking</button>
-                <button class="option-btn" onclick="nextQuestion()">Movie Marathon</button>
-                <button class="option-btn" onclick="nextQuestion()">Reading</button>
-                <button class="option-btn" onclick="nextQuestion()">Exploring New Places</button>
-            </div>
+        <!-- Step 3: Semester -->
+        <div class="form-step" id="step3">
+            <label for="semester">Which semester are you in?</label>
+            <select id="semester" required>
+                <option value="">Select Semester</option>
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
+                <option value="3">3rd Semester</option>
+                <option value="4">4th Semester</option>
+                <option value="5">5th Semester</option>
+                <option value="6">6th Semester</option>
+                <option value="7">7th Semester</option>
+                <option value="8">8th Semester</option>
+            </select>
+            <span class="error-message"></span>
+            <button type="button" class="next-btn" onclick="nextStep()">Next <span>→</span></button>
+        </div>
 
-            <div class="question" id="question2" style="display: none;">
-                <p>What’s your favorite subject?</p>
-                <button class="option-btn" onclick="nextQuestion()">Mathematics</button>
-                <button class="option-btn" onclick="nextQuestion()">Physics</button>
-                <button class="option-btn" onclick="nextQuestion()">Chemistry</button>
-                <button class="option-btn" onclick="nextQuestion()">Literature</button>
-            </div>
+        <!-- Step 4: Department -->
+        <div class="form-step" id="step4">
+            <label for="department">What's your department?</label>
+            <select id="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science</option>
+                <option value="EEE">Electrical Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="CE">Civil Engineering</option>
+                <option value="BBA">Business Administration</option>
+            </select>
+            <span class="error-message"></span>
+            <button type="button" class="next-btn" onclick="nextStep()">Next <span>→</span></button>
+        </div>
 
-            <!-- Add more questions as needed -->
+        <!-- Step 5: Year of Birth -->
+        <div class="form-step" id="step5">
+            <label for="year-of-birth">Year of birth:</label>
+            <input type="number" id="year-of-birth" min="1900" max="2024" required>
+            <span class="error-message"></span>
+            <button type="button" class="next-btn" onclick="startQuestionnaire()">Proceed <span>⚡</span></button>
+        </div>
+    </div>
 
-            <div id="thank-you" style="display: none; text-align: center;">
-                <h2>Thank You for Completing the Questionnaire!</h2>
-                <p>Your responses have been recorded.</p>
-                <button class="btn" onclick="resetForm()">Start Over</button>
-            </div>
+    <!-- Questionnaire -->
+    <div id="questionnaire" style="display: none;">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <!-- Questions -->
+        <div class="question active" id="question1">
+            <p>What’s your idea of a perfect weekend?</p>
+            <button class="option-btn" onclick="answerQuestion('question1', 'Hiking')">Hiking</button>
+            <button class="option-btn" onclick="answerQuestion('question1', 'Movie Marathon')">Movie Marathon</button>
+            <button class="option-btn" onclick="answerQuestion('question1', 'Reading')">Reading</button>
+            <button class="option-btn" onclick="answerQuestion('question1', 'Exploring New Places')">Exploring New Places</button>
+        </div>
+
+        <div class="question" id="question2">
+            <p>What kind of music do you enjoy?</p>
+            <button class="option-btn" onclick="answerQuestion('question2', 'Rock')">Rock</button>
+            <button class="option-btn" onclick="answerQuestion('question2', 'Pop')">Pop</button>
+            <button class="option-btn" onclick="answerQuestion('question2', 'Classical')">Classical</button>
+            <button class="option-btn" onclick="answerQuestion('question2', 'Hip-hop')">Hip-hop</button>
+        </div>
+
+        <div class="question" id="question3">
+            <p>How do you prefer to spend your free time?</p>
+            <button class="option-btn" onclick="answerQuestion('question3', 'With friends')">With friends</button>
+            <button class="option-btn" onclick="answerQuestion('question3', 'Alone, reading or watching movies')">Alone, reading or watching movies</button>
+            <button class="option-btn" onclick="answerQuestion('question3', 'Playing sports')">Playing sports</button>
+            <button class="option-btn" onclick="answerQuestion('question3', 'Exploring new hobbies')">Exploring new hobbies</button>
+        </div>
+
+        <div class="question" id="question4">
+            <p>What would be your ideal vacation?</p>
+            <button class="option-btn" onclick="answerQuestion('question4', 'Beach resort')">Beach resort</button>
+            <button class="option-btn" onclick="answerQuestion('question4', 'Mountain hiking')">Mountain hiking</button>
+            <button class="option-btn" onclick="answerQuestion('question4', 'Cultural tour')">Cultural tour</button>
+            <button class="option-btn" onclick="answerQuestion('question4', 'Urban exploration')">Urban exploration</button>
+        </div>
+
+        <!-- Thank You Page -->
+        <div id="thank-you" style="display: none;">
+            <h3>Thank you for completing the questionnaire!</h3>
+            <button class="btn" onclick="resetForm()">Restart</button>
         </div>
     </div>
 
