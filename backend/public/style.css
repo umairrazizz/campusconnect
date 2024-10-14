@@ -1,0 +1,235 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1a1a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, p {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Futuristic Header */
+.futuristic-header {
+  text-align: center;
+  padding: 50px 0;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(50,50,50,1) 50%, rgba(0,0,0,1) 100%);
+  color: #00ffcc;
+}
+
+.futuristic-header h1 {
+  font-size: 3rem;
+  letter-spacing: 3px;
+}
+
+.futuristic-header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Section Grid */
+.section-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.section-card {
+  padding: 40px;
+  border-radius: 15px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.section-link h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.section-link p {
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Form and Inputs */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+textarea, input, select {
+  width: 80%;
+  background-color: #2D2D2D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+span.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+/* Buttons */
+.btn, button {
+  background-color: #00ffcc;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover, button:hover {
+  background-color: #00cca3;
+}
+
+/* Intro Page */
+.intro {
+  text-align: center;
+  background-color: #121212;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Container */
+#form-container {
+  width: 400px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #1F1F1F;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Steps */
+.form-step {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.form-step.active {
+  display: flex;
+}
+
+/* Questionnaire */
+#questionnaire {
+  width: 100%;
+  text-align: center;
+}
+
+.question {
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+
+/* Progress Bar */
+.progress-bar {
+  height: 8px;
+  background-color: #303030;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.progress {
+  height: 8px;
+  background-color: #03DAC6;
+  width: 0;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+/* Content Styles */
+.content {
+  margin-top: 30px;
+}
+.match-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #2c1e1e;
+}
+
+#matches-container {
+  display: flex;
+  flex-direction: column;
+}
+.match-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background-color: #130707;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.match-card h4 {
+  margin: 0 0 8px;
+}
+
+.match-card p {
+  margin: 4px 0;
+}
+
+#chat-window {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #201e1e;
+}
+
+#chat-messages {
+  max-height: 200px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}

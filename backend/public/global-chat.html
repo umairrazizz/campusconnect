@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - Global Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h2><i class="fas fa-globe"></i> Global Chat</h2>
+        </header>
+
+        <div class="chat-box" id="chat-box">
+            <!-- Messages will be displayed here -->
+        </div>
+
+        <div class="chat-input">
+            <form id="chat-form">
+                <input type="text" id="chat-message" placeholder="Type your message..." required>
+                <button type="submit" class="send-btn"><i class="fas fa-paper-plane"></i> Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io(); // Connect to the server
+
+        const chatForm = document.getElementById('chat-form');
+        const chatBox = document.getElementById('chat-box');
+
+        // Listen for form submission
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const message = document.getElementById('chat-message').value;
+
+            // Emit the message to the server
+            socket.emit('chatMessage', message);
+
+            // Clear input field
+            document.getElementById('chat-message').value = '';
+        });
+
+        // Listen for incoming messages from the server
+        socket.on('chatMessage', function(msg) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.innerHTML = `<strong>User:</strong> ${msg}`;
+            chatBox.appendChild(messageElement);
+
+            // Scroll to the bottom
+            chatBox.scrollTop = chatBox.scrollHeight;
+        });
+    </script>
+</body>
+</html>
