@@ -26,3 +26,20 @@ app.use('/api', userRoutes);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+// backend/server.js
+
+// Existing code...
+
+// Define a root route
+app.get('/', (req, res) => {
+    res.send('Welcome to the CampusConnect API!'); // or any other message
+});
+
+// Existing code...
+// backend/server.js
+const path = require('path'); // Add this import
+
+// Middleware to serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Existing code...
