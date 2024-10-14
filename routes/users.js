@@ -1,7 +1,7 @@
 // backend/routes/users.js
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
+const User = require('../backend/models/users');
 
 // Route to save ideas
 router.post('/ideas', async (req, res) => {
