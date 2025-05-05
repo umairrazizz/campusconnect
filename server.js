@@ -347,3 +347,102 @@ app.listen(PORT, () => {
 </body>
 </html>
 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Info Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 20px;
+            min-width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Blog</a>
+    </div>
+
+    <!-- Tables Container -->
+    <div class="container">
+        <!-- Left Table -->
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <!-- Right Table -->
+        <table>
+            <tr>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Ph No</th>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
+
+
