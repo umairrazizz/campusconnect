@@ -288,3 +288,62 @@ app.listen(PORT, () => {
 </body>
 </html>
 
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two Table Layout</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+            float: left;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 20px;
+            text-align: center;
+            min-width: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Table -->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <!-- Right Table -->
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Ph No</th>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>
+
