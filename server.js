@@ -204,3 +204,87 @@ app.listen(PORT, () => {
 </html>
 
 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Board Layout in HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #ddd;
+        }
+        .navbar td {
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        .content {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 20px;
+            min-width: 80px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <table class="navbar">
+        <tr>
+            <td>Home</td>
+            <td>About Us</td>
+            <td>Blog</td>
+        </tr>
+    </table>
+
+    <!-- Main content area -->
+    <div class="content">
+        <!-- Left table: two vertical rows under Name and Roll No -->
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <!-- Right table: form-like layout -->
+        <table>
+            <tr>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Ph No</th>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
+
