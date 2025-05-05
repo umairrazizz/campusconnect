@@ -117,3 +117,90 @@ app.listen(PORT, () => {
 </body>
 </html>
 
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Layout Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #ddd;
+        }
+        .navbar td {
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        .content {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 200px;
+            margin: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar using table -->
+    <table class="navbar">
+        <tr>
+            <td>Home</td>
+            <td>About Us</td>
+            <td>Blog</td>
+        </tr>
+    </table>
+
+    <!-- Two tables side by side -->
+    <div class="content">
+        <!-- Left table -->
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <!-- Right table -->
+        <table>
+            <tr>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Ph No</th>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
+
+
